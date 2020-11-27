@@ -1,0 +1,68 @@
+root@Cosmos:~# i2cdetect -l
+i2c-3	i2c       	i2c-0-mux (chan_id 2)           	I2C adapter
+i2c-1	i2c       	i2c-0-mux (chan_id 0)           	I2C adapter
+i2c-8	i2c       	i2c-0-mux (chan_id 7)           	I2C adapter
+i2c-6	i2c       	i2c-0-mux (chan_id 5)           	I2C adapter
+i2c-4	i2c       	i2c-0-mux (chan_id 3)           	I2C adapter
+i2c-2	i2c       	i2c-0-mux (chan_id 1)           	I2C adapter
+i2c-0	i2c       	Cadence I2C at e0004000         	I2C adapter
+i2c-7	i2c       	i2c-0-mux (chan_id 6)           	I2C adapter
+i2c-5	i2c       	i2c-0-mux (chan_id 4)           	I2C adapter
+
+root@Cosmos:~# i2cdetect -y -r 0
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- 0d -- -- 
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+20: 20 -- -- 23 -- -- -- -- -- -- -- -- -- -- -- UU 
+30: 30 -- 32 -- 34 -- 36 -- -- -- -- -- -- -- -- -- 
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+50: -- -- -- -- -- -- 56 57 -- -- -- -- -- -- -- -- 
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- UU 
+70: 70 -- -- -- UU -- -- --
+
+root@Cosmos:~# i2cdump -f 0 0x6f
+No size specified (using byte-data access)
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will probe file /dev/i2c-0, address 0x6f, mode byte
+Continue? [Y/n] y
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f    0123456789abcdef
+00: 51 02 95 05 02 20 03 06 41 00 00 15 47 1f 15 00    Q???? ??A..?G??.
+10: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+20: 00 00 00 00 00 00 00 00 00 00 00 00 08 64 00 00    ............?d..
+30: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+40: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+50: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+60: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+70: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+80: 51 02 95 05 02 20 03 06 41 00 00 15 47 1f 15 00    Q???? ??A..?G??.
+90: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+a0: 00 00 00 00 00 00 00 00 00 00 00 00 08 64 00 00    ............?d..
+b0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+c0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+d0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+e0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+f0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00    ................
+                            
+root@Cosmos:~# i2cget -f 0 0x6f 0x01
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will read from device file /dev/i2c-0, chip address 0x6f, data address
+0x01, using read byte data.
+Continue? [Y/n] y
+0x05
+root@Cosmos:~# cat /sys/class/rtc/rtc0/time
+15:05:21
+
+root@Cosmos:~# i2cset -f 0 0x6f 0x01 0x20
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will write to device file /dev/i2c-0, chip address 0x6f, data address
+0x01, data 0x20, mode byte.
+Continue? [Y/n] y
+
+root@Cosmos:~# i2cget -f 0 0x6f 0x01
+WARNING! This program can confuse your I2C bus, cause data loss and worse!
+I will read from device file /dev/i2c-0, chip address 0x6f, data address
+0x01, using read byte data.
+Continue? [Y/n] y
+0x20
+root@Cosmos:~# cat /sys/class/rtc/rtc0/time
+15:20:20

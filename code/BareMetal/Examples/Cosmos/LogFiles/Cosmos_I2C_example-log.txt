@@ -1,0 +1,50 @@
+== Enclustra I2C test ==
+
+EEPROM:
+   Module type                   Cosmos XZQ10
+   Revision                      3
+   Serial number                 151956
+   MAC Address 0                 20:B0:F7:04:A3:28
+   SoC type                      Xilinx Zynq-7045 FFG
+   SoC speed grade               2
+   Temperature grade             Industrial
+   Power grade                   Normal
+   Gigabit Ethernet port count   1
+   Fast Ethernet port count      2
+   Real-time clock equipped      Yes
+   USB 2.0 port count            1
+   DDR3L RAM (PS) size (MB)      1024
+   DDR3L RAM (PL) size (MB)      256
+   QSPI flash size (MB)          64
+   eMMC flash size (GB)          16
+   USB-C power mode              USB type-C current 3A supported
+   USB-C equipped                Yes
+   SFP+ ports equipped           No
+   QSFP+ port equipped           Yes
+   FMC0 connector equipped       Yes
+   FMC1 connector equipped       Yes
+   MGT multiplexers equipped     Yes
+   System monitor equipped       Yes
+
+Real Time Clock:
+   Time: 11:22:33
+   Date: 22.11.10
+   Temperature: 39 Celsius
+
+System Monitor:
+   VCC_MAIN       Voltage = 12027 mV
+   VCC_3V3        Voltage = 3270 mV
+   VCC_5V         Voltage = 5072 mV
+   VCC_2V5        Voltage = 2492 mV
+   VCC_2V0 (1.8V for FBG packages)Voltage = 1985 mV
+   VCC_DDR3       Voltage = 1347 mV
+   VCC_1V2        Voltage = 1197 mV
+
+User EEPROM test:
+   Device present at address: 0x56
+   User EEPROM initial read: DE
+   User EEPROM written data: AD
+   User EEPROM read after write: AD
+
+
+== End of test ==
