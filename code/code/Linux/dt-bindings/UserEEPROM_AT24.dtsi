@@ -1,0 +1,7 @@
+&i2c0 {
+    at24: at24@56 {
+    compatible = "atmel,24c32";
+    reg = <0x56>;
+    pagesize = <32>;
+    };
+};

@@ -7,7 +7,7 @@ The purpose of this document is to present to the user different possibilities t
 This document gives an overview of the I2C bus in general and lists all the different devices present on Enclustra hardware and their capabilities (in terms of I2C communication). A bare metal section shows examples and code snippets to implement I2C communication on the hardware. In the Linux section available drivers and the corresponding device tree entries are shown and presented.
 
 # License
-Copyright 2020 by Enclustra GmbH, Switzerland.
+Copyright 2021 by Enclustra GmbH, Switzerland.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this hardware, software,
 firmware, and associated documentation files (the ”Product”), to deal in the Product without restriction, including
@@ -40,7 +40,7 @@ I2C is a low speed, low cost and simple bus mostly used for inter peripheral com
 5. After the final bit a clock pulse follows during which **SDA** is pulled low in preparation for the stop bit.
 6. A stop bit (**P**) is signaled when **SCL** rises, followed by **SDA** rising.
 
-The types of I2C chips used in Enclustra hardware are described in more detail in **chapter 3**. The following chapter provides distinct examples on Enclustra hardware. The examples include sample code for all I2C devices used in Enclustra hardware.
+The types of I2C chips used in Enclustra hardware are described in more detail in [Chapter 2](./Chapter-2-I2CDeviceDescription.md). The following chapter provides distinct examples on Enclustra hardware. The examples include sample code for all I2C devices used in Enclustra hardware.
 
 # Table of contents
 * [Chapter 1 - Examples](./Chapter-1-Examples.md)
