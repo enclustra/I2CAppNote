@@ -2,7 +2,7 @@
 Enclustra provides a build environment for building Linux systems for Xilinx and Intel Enclustra hardware ([Enclustra Build Environment (EBE)](https://www.enclustra.com/en/products/tools/linux-build-environment/)). Enclustra also provides Petalinux BSPs for Enclustra hardware. Regardless of the Linux build tools chosen to create a Linux system the necessary adjustments to the device tree and the necessary drivers for the I2C devices used on Enclustra hardware are described in this section. Enclustra also provides a detailed guide for loading and integrating kernel modules into a custom Linux system ((ask [support@enclustra.com] for details)).
 
 ## 5.1 - EEPROM
-For the Secure EEPROMs ATSHA204A-MAHDA-T and DS28CN01U-A00+ there are no Linux drivers available. However, the default Linux I2C commands can still be used to read from the Secure EEPROMs. Please refer to section [5.7 Linux I2C tools](Chapter-5-Linux.md#57-linux-i2c-tools) for further details.
+There is no Linux driver available for the DS28CN01U-A00+ Secure EEPROM. However, the default Linux I2C commands can still be used to read from the Secure EEPROMs. Please refer to section [5.7 Linux I2C tools](Chapter-5-Linux.md#57-linux-i2c-tools) for further details. There are two different drivers available for the ATSHA204A-MAHDA-T, one is part of the mainline Linux kernel ([Link](https://github.com/torvalds/linux/blob/master/drivers/crypto/atmel-sha204a.c)). The other option is [this one](https://github.com/cryptotronix/atsha204-i2c). The second one can also be used to read from the OTP region.
 
 ### 5.1.1 24AA128T-I/MNY
 For the 24AA128T-I/MNY a generic kernel driver can be used.
