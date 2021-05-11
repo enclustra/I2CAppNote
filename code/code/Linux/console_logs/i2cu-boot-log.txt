@@ -1,8 +1,0 @@
-Zynq> i2c bus
-Bus 0:	zynq_0
-
-Zynq> i2c probe
-Valid chip addresses: 0D 20 23 2F 30 32 34 36 56 57 64 6F 70 74
-
-Zynq> i2c md 0x6f 0x00 0x06
-0000: 34 57 97 05 02 20    4W... 
